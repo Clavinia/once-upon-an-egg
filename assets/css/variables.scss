@@ -1,0 +1,14 @@
+
+// Palette
+
+$color-lightest: #fff;
+$color-darker: rgb(50, 50, 52);
+$color-accent: rgb(0, 157, 255);
+$color-accent2: rgb(240, 139, 81);
+
+
+// Common mixings
+
+@mixin transition($what, $kind, $time) {
+    transition: $what $kind $time; 
+}
