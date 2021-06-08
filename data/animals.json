@@ -13,8 +13,8 @@
         "names": ["serpiente", "serpientes", "cobra", "cobras", "aspid", "culebra", "culebras"],
         "img": "serpiente.png",
         "text": {
-            "title": "¡Hay nacido un pollito!",
-            "subtitle": "Cuando crezca comerá maíz y grano en el gallinero."
+            "title": "¡Hay nacido una serpiente!",
+            "subtitle": "Mira cómo mueve la lengua."
         }
     },
     "not_found": {

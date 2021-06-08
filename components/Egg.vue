@@ -7,9 +7,11 @@
                 <img class="ini-egg p-3" src="~/assets/img/egg-test.svg" alt="">
 
                 
-                <h3 class="mt-3 mb-3">Maybe it's a... {{inputValue}} </h3>  
-                <input class="input-field mb-3 mt-3" v-model="inputValue" type="text">
-                <button class="btn btn-lg btn-block">Let's check!</button>
+                <h3 class="mt-3 mb-3">Maybe it's a... <strong>{{ inputValue }}</strong> ? </h3>  
+                <input class="input-field mb-3 mt-3" v-model="inputValue" type="text" placeholder="type what you think it is">
+                <button class="btn btn-lg btn-block" v-if="inputValue" :disabled="inputValue ? false : true" @click="doSomething()">Let's check!</button>
+
+                <p>Hola, hola: {{animalList}}</p>
                 
                 
             </div>
@@ -21,12 +23,26 @@
 
 <script>
 
-const animals = import('~/data/animals.json');
+// const animals = import('~/data/animals.json');
+import animals from '~/data/animals.json';
 
 export default {
     props: {
-        inputValue: 'patito',
-
+        
+    },
+    asyncData ({ params }) {
+        return { animals }
+    },
+    data() {
+        return {
+            animalList: animals,
+            inputValue: '',
+        };
+    },
+    methods: {
+        doSomething: function() {
+            console.log("I work!");
+        }
     }
 }
 </script>
