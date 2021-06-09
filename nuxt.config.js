@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'once-upon-an-egg',
+    title: 'Once Upon An Egg',
     htmlAttrs: {
       lang: 'en'
     },
@@ -16,12 +16,12 @@ export default {
       { name: 'theme-color', content: '#ffffff'}
     ],
     link: [
+      // { rel: 'manifest', href: '/site.manifest' },
       { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
-        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
-        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
-        { rel: 'manifest', href: '/site.manifest' },
-        { rel: 'mask-icon', color: '#5bbad5', href:'/safari-pinned-tab.svg'}
+      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+      { rel: 'mask-icon', color: '#5bbad5', href:'/safari-pinned-tab.svg'}
     ]
   },
 

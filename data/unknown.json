@@ -1,0 +1,9 @@
+{
+    "name": "unknown",
+    "namesArray": ["unknown"],
+    "img": "error.png",
+    "text": {
+        "title": "Mmm, it seems that's not what is inside...",
+        "subtitle": "Are you sure what you've written is an animal born from an egg?"
+    }
+}
