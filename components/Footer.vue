@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-        <div class="container p-3 text-center">
+        <div class="container p-2 text-center">
             <div>
                 Need <nuxt-link to="/help">help</nuxt-link>?
             </div>

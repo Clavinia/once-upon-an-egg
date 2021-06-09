@@ -1,10 +1,10 @@
 <template>
     <div class="container">
         <div class="row justify-content-center text-center">
-            <div class="col col-md-8">
+            <div class="col col-md-10 col-lg-8 col-xl-6">
                 <h1 class="mb-3">Oh, it's an egg!</h1>
                 <h2 class="mb-3">I wonder which animal is inside.</h2>
-                <img class="ini-egg p-3" src="~/assets/img/egg-test.svg" alt="">
+                <img class="ini-egg p-3 mt-2 mb-2" src="~/assets/img/egg-test.svg" alt="">
 
                 <!-- Check the Egg logic -->
                 <h3 class="mt-3 mb-3">Maybe it's a... <strong>{{ inputValue }}</strong> ? </h3>  
@@ -13,7 +13,7 @@
                 
                 <!-- Logs -->
                 <!-- <p>JSON: {{ animalList }}</p>
-                <p>Array: {{ animalListArray.length }}</p>
+                <p>Array: {{ animalList.length }}</p>
                 <p>Length: {{ Object.keys(animalList).length }}</p> -->
                 
                 
@@ -26,8 +26,6 @@
 
 <script>
 
-// const animals = import('~/data/animals.json');
-import animals from '~/data/animals.json';
 import animalsArray from '~/data/animalsArray.json';
 import unknown from '~/data/unknown.json';
 
@@ -41,8 +39,7 @@ export default {
     data() {
         return {
             inputValue: '',
-            animalList: animals,
-            animalListArray: animalsArray,
+            animalList: animalsArray,
             unknown: unknown
         };
     },
@@ -52,7 +49,7 @@ export default {
 
                 let egg;
                 let suggestedEgg = this.inputValue.toLowerCase();
-                let possibleEggs = this.animalListArray;
+                let possibleEggs = this.animalList;
 
                 for ( let i = 0; i < possibleEggs.length; i++ ) {
                     if (possibleEggs[i].namesArray.includes(suggestedEgg)) {
@@ -60,16 +57,13 @@ export default {
                         break;
                     }
                 }
-
                 if (egg) {
                     console.log("It's a match! It was a: " + egg.name);
-                    // Use commit to call a store mutation
                     this.$store.commit('addEgg', egg);
                 }
                 else {
                     console.log("Sorry, this egg doesn't contain that...");
                     this.$store.commit('addEgg', this.unknown);
-                    this.$store.commit('eggUnknown', true);
                 }
 
                 // Go to results page
@@ -92,7 +86,8 @@ export default {
 @import '~assets/css/variables';
 
 .ini-egg {
-    max-height: 30vh;
+    // max-height: 30vh;
+    max-height: clamp(25vh, 30vw, 30vh);
     max-width: 100%;
 }
 
@@ -117,7 +112,7 @@ export default {
     }
     &::placeholder {
         opacity: .5;
-        font-size: clamp(1rem, 2.75vw, 4.2rem); 
+        font-size: clamp(1rem, 3vw, 2rem); 
     }
 }
 
@@ -128,7 +123,14 @@ export default {
     border-radius: 1rem;
     font-size: 1.5rem;
     &:hover, &:active, &:focus {
-        background: $color-accent2;
+        &:not(:disabled) {
+            background: $color-accent2;
+        }
+        
+    }
+    &:disabled {
+        opacity: .5;
+        cursor: not-allowed;
     }
 }
 </style>

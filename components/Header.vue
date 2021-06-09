@@ -1,6 +1,6 @@
 
 <template>
-    <div class="header pt-4 pb-4">
+    <div class="header p-3">
         <div class="container text-center">
             <nav>
                 <div class="row justify-content-right">

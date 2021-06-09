@@ -3,14 +3,14 @@
         <div class="row justify-content-center text-center">
             <div class="col col-md-8">
                 <h1 class="mb-3">{{ crackedEgg.text.title }}</h1>
-                <h2 v-if="unknownState" class="mb-3">{{crackedEgg.text.subtitle}}</h2>
-                <img v-if="crackedEgg" class="ini-egg p-3" :src="require(`~/assets/img/${crackedEgg.img}`)" alt="">
+                <h2 v-if="isItUnknown" class="mb-3">{{ crackedEgg.text.subtitle }}</h2>
+                <img class="ini-egg p-3 mt-2 mb-2" :src="require(`~/assets/img/${crackedEgg.img}`)" alt="">
 
                 <button class="btn btn-lg btn-block" @click="resetGame()">Try again</button>
 
                 <!-- Logs -->
                 <p class="mb-3">Egg: {{crackedEgg}}</p>
-                <p class="mb-3">Unknown: {{unknownState}}</p>
+                <p>Unknown egg data variable state: {{isItUnknown}}</p>
                 
             </div>
         </div>
@@ -18,31 +18,34 @@
 </template>
 
 <script>
-import unknown from '~/data/unknown.json';
 export default {
+    props: [],
     data() {
         return {
-            unknownEgg: unknown
         }
     },
     methods: {
         resetGame: function() {
             this.$router.push('/');
             this.$store.commit('clearEgg');
-            this.$store.commit('resetUnknown');
         },
     },
     computed: {
-        crackedEgg() {
+        crackedEgg: function() {
             if (this.$store.state.crackedEgg) {
                 return this.$store.state.crackedEgg;
             }
             else {
-                return this.unknownEgg;
+                return this.$store.state.unknownEgg;
             }
         },
-        unknownState() {
-            return this.$store.state.unknown;
+        isItUnknown: function() {
+            if (this.crackedEgg.name === 'unknown') {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
     },
 }
@@ -52,7 +55,8 @@ export default {
 @import '~assets/css/variables';
 
 .ini-egg {
-    max-height: 30vh;
+    // max-height: 30vh;
+    max-height: clamp(25vh, 30vw, 30vh);
     max-width: 100%;
 }
 

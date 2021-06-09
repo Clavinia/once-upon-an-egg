@@ -2,7 +2,9 @@
     <div>
         <div class="container text-center">
 
-            <div v-if="this.$store.state.crackedEgg"><EggCracked /></div>
+            <div v-if="!isEggEmpty">
+                <EggCracked />
+            </div>
 
             <div v-else>
                 <h2 class="mb-3" >Nothing to crack here yet...</h2>
@@ -18,7 +20,20 @@
 
 <script>
 export default {
-    
+    data() {
+        return {
+        }
+    },
+    computed: {
+        isEggEmpty: function() {
+            if (Object.keys(this.$store.state.crackedEgg).length === 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
 }
 </script>
 
