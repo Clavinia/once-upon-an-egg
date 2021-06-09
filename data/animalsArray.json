@@ -1,8 +1,8 @@
-{
-    "chicken": {
+[
+    {
         "name": "chicken",
         "namesArray": ["chicken", "chick", "chickens", "rooster", "roosters", "hen", "hen", "hens"],
-        "img": "chicken.png",
+        "img": "chicken.svg",
         "text": {
             "title": "It's a cute chicken!",
             "subtitle": "---"
@@ -12,7 +12,7 @@
             "subtitle": "Cuando crezca comerá maíz y grano en el gallinero."
         }
     },
-    "snake": {
+    {
         "name": "snake",
         "namesArray": ["snake", "snakes", "cobra", "cobras", "aspid", "viper", "vipers"],
         "img": "snake.png",
@@ -21,4 +21,4 @@
             "subtitle": "---"
         }
     }
-}
+]
